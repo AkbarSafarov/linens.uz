@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	var swiper = new Swiper(".mySwiper", {
+	let swiper = new Swiper(".mySwiper", {
 	    pagination: {
 	        el: ".swiper-pagination",
-	        clickable: true,
+	        clickable: false,
 	    },
 	    breakpoints: {
 		    0: {
@@ -20,8 +20,34 @@ $(document).ready(function() {
 		}
 	});
 
+	const swiperProduct = new Swiper(".mySwiper_product_image_main", {
+	    pagination: {
+	        el: ".swiper-pagination_pr",
+	        clickable: false,
+	    },
+	    navigation: {
+          nextEl: ".swiper-prod-next",
+          prevEl: ".swiper-prod-prev",
+        },
+	    breakpoints: {
+		    0: {
+		    	centeredSlides: true,
+		    	loop: true,
+		    	slidesPerView: "auto",
+		    	pagination: false,
+		      	slidesPerView: 1,
+		      	spaceBetween: 10
+		    },
+		    1001: {
+		      	slidesPerView: 1,
+		      	spaceBetween: 0
+		    }
+		},
+		
+	});
 
-	var mySwiper;
+
+	let mySwiper;
 	function initSwiper() {
 	  mySwiper = new Swiper('.mySwiper_categor', {
 	    loop: true,
@@ -54,19 +80,20 @@ $(document).ready(function() {
 	  }
 	});
 
-	$('.item_product').each(function(){
-    	const dataId = '.' + $(this).find('.swiper').data('id');
-    	const paginationClass = $(this).find('.swiper-pagination').attr('class');
-    	const productSwiper = new Swiper(dataId, {
-    		pagination: {
-		      	el: '.swiper-pagination',
-	        	clickable: true,
-		    },
+	document.querySelectorAll('.item_product').forEach(function(item) {
+	    const dataId = '.' + item.querySelector('.swiper').dataset.id;
+	    const paginationClass = item.querySelector('.swiper-pagination').getAttribute('class');
+	    const productSwiper = new Swiper(dataId, {
+	        pagination: {
+	            el: `.${paginationClass}`,
+	            clickable: false,
+	        },
 	        spaceBetween: 0,
 	        loop: false,
 	        loopedSlides: 1
 	    });
-    })
+	});
+
 
 	const newProductsSwiper = new Swiper(".mySwiper_product_new", {
         loop: false,
@@ -202,6 +229,37 @@ $(document).ready(function() {
         }
     });
 })
+
+function tabsBlock() {
+    document.querySelectorAll('.tab_product').forEach(function(tab) {
+        var tabTitle = tab.querySelectorAll('.tabs-title li');
+        var tabBlocks = tab.querySelectorAll('.tabs-block .tabs-b');
+        var tabActive = 'active';
+        
+        tabTitle.forEach(function(title) {
+            title.addEventListener('click', onTabClick);
+        });
+
+        function onTabClick(event) {
+            var target = event.target.closest('li');
+            var index = Array.prototype.indexOf.call(tabTitle, target);
+
+            tabTitle.forEach(function(title) {
+                title.classList.remove(tabActive);
+            });
+            target.classList.add(tabActive);
+
+            tabBlocks.forEach(function(block) {
+                block.classList.remove(tabActive);
+            });
+            tabBlocks[index].classList.add(tabActive);
+        }
+    });
+}
+
+tabsBlock();
+
+
 
 const accorBlock = document.querySelectorAll('.accor_title');
 
