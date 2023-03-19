@@ -229,20 +229,72 @@ $(document).ready(function() {
         }
     });
 })
+const body = document.body;
+const html = document.documentElement;
+
+function blockPopup(btn, wrap) {
+	let formWrap = document.querySelector(wrap);
+	let closeForm = formWrap.querySelector('.close_btn');
+	let formBtn = document.querySelector(btn);
+	let formOpened = 'opened';
+	let overflowHidden = 'overflowHidden';	
+	let wrapMain = document.querySelector('.block_popop_modal');
+
+	closeForm.addEventListener('click', function() {
+		formWrap.classList.remove(formOpened);
+		html.classList.remove(overflowHidden);
+	});
+
+	formBtn.addEventListener('click', function(event) {
+		wrapMain.classList.remove(formOpened);
+		formWrap.classList.add(formOpened);
+		event.preventDefault();
+	});
+
+	html.addEventListener('keyup', function(event) {
+		if (formWrap.classList.contains(formOpened) && event.keyCode == 27) {
+			formWrap.classList.remove(formOpened);
+			html.classList.remove(overflowHidden);
+		}
+	});
+
+	body.addEventListener('click', function(a) {		
+		if (formWrap.contains(a.target) || formBtn.contains(a.target)) return;
+		if (formWrap.classList.contains(formOpened)) {
+			formWrap.classList.remove(formOpened);
+			html.classList.remove(overflowHidden);
+		}
+	});
+}
+
+blockPopup('.catalog_btn', '.categor_block_fixed');
+blockPopup('.review_btn', '.review_block_fixed');
+blockPopup('.delev_btn', '.delevery_block_fixed');
+blockPopup('.send_btn', '.send_block_fixed');
+
+const siteWrap = document.querySelector('body');
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 1) {
+        siteWrap.classList.add('fixed-wrap');
+    } else {
+        siteWrap.classList.remove('fixed-wrap');
+    }
+});
 
 function tabsBlock() {
     document.querySelectorAll('.tab_product').forEach(function(tab) {
-        var tabTitle = tab.querySelectorAll('.tabs-title li');
-        var tabBlocks = tab.querySelectorAll('.tabs-block .tabs-b');
-        var tabActive = 'active';
+        const tabTitle = tab.querySelectorAll('.tabs-title li');
+        const tabBlocks = tab.querySelectorAll('.tabs-block .tabs-b');
+        const tabActive = 'active';
         
         tabTitle.forEach(function(title) {
             title.addEventListener('click', onTabClick);
         });
 
         function onTabClick(event) {
-            var target = event.target.closest('li');
-            var index = Array.prototype.indexOf.call(tabTitle, target);
+            const target = event.target.closest('li');
+            const index = Array.prototype.indexOf.call(tabTitle, target);
 
             tabTitle.forEach(function(title) {
                 title.classList.remove(tabActive);
@@ -270,22 +322,25 @@ accorBlock.forEach(function(elem) {
 });
 
 
-var countDownDate = new Date("Mar 12, 2023 00:00:00").getTime();
-var x = setInterval(function() {
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-    document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("timer").innerHTML = "EXPIRED";
-    }
-}, 1000);
+const countDownDate = new Date("Mar 12, 2023 00:00:00").getTime();
+const timerBlock = document.querySelector('#timer');
+if (timerBlock) {
+	let x = setInterval(function() {
+	    let now = new Date().getTime();
+	    let distance = countDownDate - now;
+	    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	    hours = (hours < 10) ? "0" + hours : hours;
+	    minutes = (minutes < 10) ? "0" + minutes : minutes;
+	    seconds = (seconds < 10) ? "0" + seconds : seconds;
+	    document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
+	    if (distance < 0) {
+	        clearInterval(x);
+	        document.getElementById("timer").innerHTML = "EXPIRED";
+	    }
+	}, 1000);
+}
 
 
 

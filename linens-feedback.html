@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="css/jquery.fancybox.min.css"/>
 <link rel="stylesheet" href="css/main.css">
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" ></script>
 </head>
@@ -27,7 +27,14 @@
 <li><a href="">Футболки</a></li>
 <li><a href="">Простыни</a></li>
 </ul>
-<div class="cart_mini_fixed"></div>
+<div class="cart_mini_fixed">
+<div class="cart_mini">
+<div class="cart_block">
+<span>Корзина</span>
+<div class="count">2</div>
+</div>
+</div>
+</div>
 <div class="link_delevery">
 <a href="">Доставка по Узбекистану. Оплата при получении!</a>
 </div>
@@ -42,7 +49,7 @@
 </div>
 <div class="company"><span>Текстильная продукция высокого качества</span></div>
 <div class="link">
-<a href="#">Доставка и оплата</a>
+<a href="#" class="delevery_btn">Доставка и оплата</a>
 </div>
 <div class="contacts_head">
 <div class="time">с 9:00 до 21:00</div>
@@ -297,7 +304,327 @@
 </div>
 </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<div class="block_popop_modal categor_block_fixed">
+<div class="close_btn"></div>
+<div class="title">Каталог товаров</div>
+<div class="search_form">
+<form action="">
+<input type="text" placeholder="Поиск">
+<button type="submit"></button>
+</form>
+</div>
+<div class="inner_catalog">
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat1.jpg" alt="">
+</span>
+<span class="name">Подушки <span>14</span></span>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat2.jpg" alt="">
+</span>
+<span class="name">Одеяла <span>14</span></span>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat3.jpg" alt="">
+</span>
+<span class="name">Скатерти <span>14</span></span>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat4.jpg" alt="">
+</span>
+<span class="name">Пледы <span>14</span></span>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat5.jpg" alt="">
+</span>
+<span class="name">Наволочки <span>14</span></span>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat6.jpg" alt="">
+</span>
+<span class="name">Полотенца <span>14</span></span>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat7.jpg" alt="">
+</span>
+<span class="name">Толстовки <span>14</span></span>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat8.jpg" alt="">
+</span>
+<span class="name">Футболки <span>14</span></span>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="">
+<span class="image">
+<img src="files/cat9.jpg" alt="">
+</span>
+<span class="name">Простыни <span>14</span></span>
+</a>
+</div>
+</div>
+</div>
+<div class="block_popop_modal review_block_fixed">
+<div class="close_btn"></div>
+<div class="title">Отзывы</div>
+<div class="review_inner">
+<div class="swiper-slide" data-fancybox="review__item" href="files/review1.jpg">
+<div class="zoom_text">Увеличить</div>
+<img src="files/review1.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review__item" href="files/review2.jpg">
+<div class="zoom_text">Увеличить</div>
+<img src="files/review2.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review__item" href="files/review3.jpg">
+<div class="zoom_text">Увеличить</div>
+<img src="files/review3.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review__item" href="files/review1.jpg">
+<div class="zoom_text">Увеличить</div>
+<img src="files/review1.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review__item" href="files/review1.jpg">
+<div class="zoom_text">Увеличить</div>
+<img src="files/review1.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review__item" href="files/review1.jpg">
+<div class="zoom_text">Увеличить</div>
+<img src="files/review1.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review__item" href="files/review2.jpg">
+<div class="zoom_text">Увеличить</div>
+<img src="files/review2.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review__item" href="files/review3.jpg">
+<div class="zoom_text">Увеличить</div>
+<img src="files/review3.jpg" loading="lazy" alt="service1">
+</div>
+</div>	
+<div class="title">Видео-отзывы</div>
+<div class="video_inner">
+<div class="swiper-slide" data-fancybox="review_video__item" href="https://youtu.be/_CL6n0FJZpk">
+<img src="files/video_image.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review_video__item" href="https://youtu.be/_CL6n0FJZpk">
+<img src="files/video_image.jpg" loading="lazy" alt="service1">
+</div>
+<div class="swiper-slide" data-fancybox="review_video__item" href="https://youtu.be/_CL6n0FJZpk">
+<img src="files/video_image.jpg" loading="lazy" alt="service1">
+</div>
+</div>
+<div class="bottom">
+<a href="#" class="btn_button">Смотреть еще отзывы</a>
+<a href="#" class="btn_button second_btn">Оставить отзыв</a>
+</div>
+</div>
+<div class="block_popop_modal delevery_block_fixed">
+<div class="close_btn"></div>
+<div class="title">Доставка</div>
+<div class="inner_text">
+<p>
+<strong>Мы осуществляем доставку по всему Узбекистану. Срок доставки от 2 до 10 дней.</strong>
+</p>
+<p>Стоимость курьерской доставки по г. Ташкент - 25 000 сум. Стоимость курьерской доставки по Узбекистану - 30 000 сум.</p>
+<p>Доставка товаров, приобретенных в Интернет-магазине, осуществляется до складов транспортных компаний или до дверей получателя. Вместе с заказом Покупателю предоставляются документы согласно законодательству РУз (расходная накладная).</p>
+<h2>Как заказать?</h2>
+<ul>
+<li>Нажмите кнопку "Заказать" у товара, заполните поля Имя и Телефон и нажмите кнопку "Заказать"</li>
+<li>Наш менеджер свяжется с Вами в течении 30-40 минут</li>
+<li>Согласует сроки доставки и комплектацию заказа</li>
+<li>Мы доставляем и Вы оплачиваете заказ при получении курьеру</li>
+</ul>
+<h2>Оплата</h2>
+<p><strong>Оплата при получении заказа</strong><br> Наличными или на карту. </p>
+</div>
+</div>
+<div class="block_popop_modal send_block_fixed">
+<div class="close_btn"></div>
+<div class="btns_links">
+<a href="#" class="btn_button second_btn">
+<i><img src="files/tg.svg" alt=""></i>
+<span>Написать в Telegram</span>
+</a>
+<a href="#" class="btn_button second_btn">
+<i><img src="files/fb.svg" alt=""></i>
+<span>Написать в Facebook</span>
+</a>
+<a href="#" class="btn_button second_btn">
+<i><img src="files/ins.svg" alt=""></i>
+<span>Написать в Instagram</span>
+</a>
+<a href="#" class="btn_button second_btn" data-fancybox data-src="#application_submit"><i class="i-leave"></i>Оставить заявку</a>
+<div class="text">или</div>
+<div class="btn_button second_btn"><i class="i-call"></i>Позвонить сейчас</div>
+</div>
+</div>
+<div class="fancy_form_modal" id="application_submit">
+<div class="modal_box_parent">
+<div class="modal_content">
+<div class="left">
+<img src="files/form_image.jpg" alt="">
+</div>
+<div class="right">
+<div class="title">Оставить заявку</div>
+<div class="subtitle">Заполните все поля и мы свяжемся с Вами в скором времени</div>
+<form action="">
+<div class="field">
+<div class="field_name">Имя:</div>
+<input type="text" placeholder="Мадина">
+</div>
+<div class="field">
+<div class="field_name">Телефон:</div>
+<input type="text" placeholder="+998 99 000 00 00">
+<div class="filed_label">Перезвоним с 9:00 до 20:00</div>
+</div>
+<button class="btn_button">Отправить</button>
+<div class="police">Оставляя заявку, вы соглашаетесь с политикой обработки <a href="#" target="_blank">персональных данных</a></div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="fancy_buy_modal" id="buy_submit">
+<div class="modal_box_parent">
+<div class="title">Товар добавлен в корзину</div>
+<a href="" class="btn_button">Оформить заказ</a>
+<div class="link_button" data-fancybox-close>Вернуться к товарам</div>
+</div>
+</div>
+<div class="fixed_action_btns">
+<div class="btn_action catalog_btn">
+<div class="icon"></div>
+<div class="name">Каталог</div>
+</div>
+<div class="btn_action review_btn">
+<div class="icon">
+<div class="count">1k+</div>
+</div>
+<div class="name">Отзывы</div>
+</div>
+<div class="btn_action cart_btn">
+<div class="icon">
+<div class="count">2</div>
+</div>
+<div class="name">Корзина</div>
+</div>
+<div class="btn_action delev_btn">
+<div class="icon"></div>
+<div class="name">Доставка</div>
+</div>
+<div class="btn_action send_btn">
+<div class="icon"></div>
+<div class="name">Написать</div>
+</div>
+</div>
+<div class="fixed_link">
+<a href="" target="_blank" class="tg_link">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="url(#paint0_linear_2880_11193)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.0431 19.7834C14.8716 17.2522 18.7517 15.5702 20.7001 14.7543C26.2454 12.4395 27.4111 12.0398 28.1605 12.0232C28.327 12.0232 28.6934 12.0565 28.9432 12.2563C29.143 12.4229 29.193 12.6393 29.2263 12.8059C29.2596 12.9724 29.2929 13.3221 29.2596 13.5886C28.9598 16.7526 27.6609 24.4295 26.9948 27.9599C26.7117 29.4587 26.1622 29.9582 25.6293 30.0082C24.4636 30.1081 23.581 29.2422 22.4652 28.5095C20.7001 27.3604 19.7175 26.6443 18.0023 25.512C16.0206 24.213 17.3029 23.497 18.4353 22.3313C18.735 22.0315 23.8474 17.3687 23.9473 16.9524C23.964 16.9025 23.964 16.7026 23.8474 16.6027C23.7309 16.5028 23.5643 16.5361 23.4311 16.5694C23.2479 16.6027 20.4503 18.4678 15.0048 22.1481C14.2055 22.6976 13.4894 22.9641 12.8399 22.9474C12.1239 22.9308 10.7583 22.5478 9.72587 22.2147C8.47691 21.815 7.47774 21.5985 7.561 20.8991C7.61096 20.5328 8.11055 20.1664 9.0431 19.7834Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_2880_11193" x1="19.9833" y1="0" x2="19.9833" y2="39.6836" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2AABEE"/>
+<stop offset="1" stop-color="#229ED9"/>
+</linearGradient>
+</defs>
+</svg>
+</a>
+<div class="call_button" data-fancybox data-src="#application_submit">
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" r="20" fill="url(#paint0_linear_2880_11202)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.8762 23.1238C18.8773 25.125 20.6836 25.4451 21.2711 24.8576C22.2508 23.8779 23.8472 23.8856 24.8375 24.8754L26.253 26.2914C26.8712 26.9096 26.8765 27.9075 26.264 28.52L24.9527 29.8314C24.4679 30.3162 23.7997 30.5658 23.1143 30.56C20.8127 30.5408 17.7032 28.3861 14.6586 25.3414C11.614 22.2968 9.45924 19.1874 9.44004 16.8853C9.43428 16.2003 9.68388 15.5322 10.1687 15.0469L11.48 13.736C12.0925 13.1235 13.0904 13.1288 13.7087 13.747L15.1247 15.163C16.1144 16.1528 16.1221 17.7493 15.1424 18.729C14.5549 19.3165 14.8751 21.1227 16.8762 23.1238ZM30.56 20.96C30.56 21.2146 30.4589 21.4588 30.2789 21.6388C30.0988 21.8189 29.8546 21.92 29.6 21.92C29.3454 21.92 29.1012 21.8189 28.9212 21.6388C28.7412 21.4588 28.64 21.2146 28.64 20.96C28.64 15.6579 24.3421 11.36 19.04 11.36C18.7854 11.36 18.5413 11.2589 18.3612 11.0788C18.1812 10.8988 18.08 10.6546 18.08 10.4C18.08 10.1454 18.1812 9.90121 18.3612 9.72118C18.5413 9.54114 18.7854 9.44 19.04 9.44C25.4024 9.44 30.56 14.5976 30.56 20.96ZM26.24 20.96C26.24 21.2146 26.1389 21.4588 25.9589 21.6388C25.7788 21.8189 25.5346 21.92 25.28 21.92C25.0254 21.92 24.7812 21.8189 24.6012 21.6388C24.4212 21.4588 24.32 21.2146 24.32 20.96C24.32 18.044 21.956 15.68 19.04 15.68C18.7854 15.68 18.5413 15.5789 18.3612 15.3988C18.1812 15.2188 18.08 14.9746 18.08 14.72C18.08 14.4654 18.1812 14.2212 18.3612 14.0412C18.5413 13.8611 18.7854 13.76 19.04 13.76C23.0164 13.76 26.24 16.9837 26.24 20.96Z" fill="white"/>
+<defs>
+<linearGradient id="paint0_linear_2880_11202" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FA3A9F"/>
+<stop offset="1" stop-color="#DE0075"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+</div>	
+<div class="cart_popup_modal">
+<div class="cart_inner">
+<div class="close-form"></div>
+<div class="cart_datals">
+<div class="title">Корзина</div>
+<div class="cart_products">
+<div class="cart_item">
+<a href="#" class="image">
+<img src="files/prod.jpg" loading="lazy" alt="">
+</a>
+<div class="right">
+<div class="middle_detal">
+<div><a href="" class="name">Комплект из 2-х подушек 10148</a></div>
+<div class="old_price">300 000</div>
+<div class="current_price">230 000 <span>сум</span></div>
+</div>
+<div class="amount_item">
+<button class="minus"></button>
+<input type="text" value="1">
+<button class="plus"></button>
+</div>
+<div class="delete_item"></div>
+</div>
+</div>
+</div>
+<div class="total_summ">
+<div class="name">Итого:</div>
+<div class="old_price">300 000</div>
+<div class="current_price">230 000 <span>сум</span></div>
+</div>
+</div>
+<div class="right_form_order">
+<div class="title">Оформление заказа</div>
+<div class="subtitle">Заполните все поля и мы свяжемся с Вами в скором времени</div>
+<div class="field">
+<div class="field_name">Имя:</div>
+<input type="text" placeholder="Мадина">
+</div>
+<div class="field">
+<div class="field_name">Телефон:</div>
+<input type="text" placeholder="+998 99 000 00 00">
+<div class="filed_label">Перезвоним с 9:00 до 20:00</div>
+</div>
+<div class="field">
+<div class="field_name">Способ оплаты:</div>
+<select name="" id="">
+<option value="Оплата курьеру">Оплата курьеру</option>
+<option value="Оплата курьеру">Оплата курьеру</option>
+<option value="Оплата курьеру">Оплата курьеру</option>
+</select>
+</div>
+<button class="btn_button">Отправить</button>
+<div class="police">Оставляя заявку, вы соглашаетесь с политикой обработки <a href="#" target="_blank">персональных данных</a></div>
+<a href="" target="_blank" class="tg_button">Заказать через Telegram</a>
+</div>
+</div>
+</div>						
+<script src="js/jquery.fancybox.min.js" async></script>
 <script src="js/swiper-bundle.min.js" async></script>
 <script src="js/main.js" async></script>
 </body>
