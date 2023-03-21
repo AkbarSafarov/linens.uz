@@ -334,6 +334,35 @@ function tabsBlock() {
 
 tabsBlock();
 
+function tabsCart() {
+    document.querySelectorAll('.cart_popup_modal .cart_inner').forEach(function(tab) {
+        const tabTitle = tab.querySelectorAll('.tabs-title li');
+        const tabBlocks = tab.querySelectorAll('.tabs-block .tabs-b');
+        const tabActive = 'active';
+        
+        tabTitle.forEach(function(title) {
+            title.addEventListener('click', onTabClick);
+        });
+
+        function onTabClick(event) {
+            const target = event.target.closest('li');
+            const index = Array.prototype.indexOf.call(tabTitle, target);
+
+            tabTitle.forEach(function(title) {
+                title.classList.remove(tabActive);
+            });
+            target.classList.add(tabActive);
+
+            tabBlocks.forEach(function(block) {
+                block.classList.remove(tabActive);
+            });
+            tabBlocks[index].classList.add(tabActive);
+        }
+    });
+}
+
+tabsCart();
+
 
 
 const accorBlock = document.querySelectorAll('.accor_title');
