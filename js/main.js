@@ -81,17 +81,19 @@ $(document).ready(function() {
 	});
 
 	document.querySelectorAll('.item_product').forEach(function(item) {
-	    const dataId = '.' + item.querySelector('.swiper').dataset.id;
-	    const paginationClass = item.querySelector('.swiper-pagination').getAttribute('class');
-	    const productSwiper = new Swiper(dataId, {
-	        pagination: {
-	            el: `.${paginationClass}`,
-	            clickable: false,
-	        },
-	        spaceBetween: 0,
-	        loop: false,
-	        loopedSlides: 1
-	    });
+		if (item.querySelectorAll('.mySwiper_product_image').length) {
+		    const dataId = '.' + item.querySelector('.swiper').dataset.id;
+		    const paginationClass = item.querySelector('.swiper-pagination').getAttribute('class');
+		    const productSwiper = new Swiper(dataId, {
+		        pagination: {
+		            el: `.${paginationClass}`,
+		            clickable: false,
+		        },
+		        spaceBetween: 0,
+		        loop: false,
+		        loopedSlides: 1
+		    });
+		}
 	});
 
 
@@ -128,6 +130,27 @@ $(document).ready(function() {
 		navigation: {
           nextEl: ".swiper-hit-next",
           prevEl: ".swiper-hit-prev",
+        }
+	});
+
+	const hpProductsSwiper = new Swiper(".mySwiper_product_hp", {
+        loop: false,
+        slidesPerView: "auto",
+        loopedSlides: 1,
+	    breakpoints: {
+		    0: {
+		      	spaceBetween: 8
+		    },
+		    700: {
+		      	spaceBetween: 12
+		    },
+		    1000: {
+		      	spaceBetween: 10
+		    }
+		},
+		navigation: {
+          nextEl: ".swiper-hp-next",
+          prevEl: ".swiper-hp-prev",
         }
 	});
 
