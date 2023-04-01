@@ -37,7 +37,6 @@ $(document).ready(function() {
 		    	centeredSlides: true,
 		    	loop: true,
 		    	slidesPerView: "auto",
-		    	pagination: false,
 		      	slidesPerView: 1,
 		      	spaceBetween: 10
 		    },
@@ -182,8 +181,7 @@ $(document).ready(function() {
         slidesPerView: 3,
 	    breakpoints: {
 		    0: {
-		    	centeredSlides: true,
-		    	slidesPerView: "auto",
+		    	slidesPerView: 2,
 		      	spaceBetween: 8
 		    },
 		    761: {
@@ -255,8 +253,87 @@ $(document).ready(function() {
         }
     });
 })
+
 const body = document.body;
 const html = document.documentElement;
+const cartBtn = document.querySelector('.cart_btn');
+
+cartBtn.addEventListener('click', function(){
+	this.classList.add('opened');
+});
+
+$('[data-fancybox]').fancybox({
+	touch: false,
+  	afterShow: function(instance, current) {
+    	$('.fancybox-content').on('touchmove', function(e) {
+      	e.preventDefault();
+    	});
+  	},
+  	afterClose: function(instance, current) {
+    	cartBtn.classList.remove('opened');
+  	}
+});
+
+const buttonScroll = document.querySelectorAll('.button_id');
+
+buttonScroll.forEach(btn => {
+	btn.addEventListener('click', function(e) {
+	  e.preventDefault();
+	  const target = document.querySelector(this.getAttribute('href'));
+	  const targetTop = target.getBoundingClientRect().top + window.pageYOffset - 40;
+	  const scrollTop = window.pageYOffset;
+	  const duration = 500;
+	  const increment = 20;
+	  let currentTime = 0;
+	  
+	  const animateScroll = function() {
+	    currentTime += increment;
+	    const easing = Math.easeInOutQuad(currentTime, scrollTop, targetTop - scrollTop, duration);
+	    window.scrollTo(0, easing);
+	    if (currentTime < duration) {
+	      setTimeout(animateScroll, increment);
+	    }
+	  };
+	  animateScroll();
+	});
+})
+
+Math.easeInOutQuad = function (t, b, c, d) {
+  t /= d/2;
+  if (t < 1) return c/2*t*t + b;
+  t--;
+  return -c/2 * (t*(t-2) - 1) + b;
+};
+
+const dLink = document.querySelectorAll('.description_link');
+const CommentLink = document.querySelectorAll('.comments_link');
+
+CommentLink.forEach(btn => {
+	btn.addEventListener('click', function(){
+		const li = document.querySelector('li[data-comments]');
+		const clickEvent = new MouseEvent('click', {
+			view: window,
+			bubbles: true,
+			cancelable: true
+		});
+		li.dispatchEvent(clickEvent);
+	})
+})
+
+dLink.forEach(btn => {
+	btn.addEventListener('click', function(){
+		const li = document.querySelector('li[data-descript]');
+		const clickEvent = new MouseEvent('click', {
+			view: window,
+			bubbles: true,
+			cancelable: true
+		});
+		li.dispatchEvent(clickEvent);
+	})
+});
+
+
+
 
 function blockPopup(btn, wrap) {
 	let formWrap = document.querySelector(wrap);
@@ -268,19 +345,25 @@ function blockPopup(btn, wrap) {
 
 	closeForm.addEventListener('click', function() {
 		formWrap.classList.remove(formOpened);
+		formBtn.classList.remove(formOpened);
 		html.classList.remove(overflowHidden);
 	});
 
 	formBtn.addEventListener('click', function(event) {
+		document.querySelector('.btn_action').classList.remove(formOpened);
+		cartBtn.classList.remove(formOpened);
+		this.classList.add(formOpened);
 		wrapMain.classList.remove(formOpened);
 		formWrap.classList.add(formOpened);
 		event.preventDefault();
+		$.fancybox.close();
 	});
 
 	html.addEventListener('keyup', function(event) {
 		if (formWrap.classList.contains(formOpened) && event.keyCode == 27) {
 			formWrap.classList.remove(formOpened);
 			html.classList.remove(overflowHidden);
+			formBtn.classList.remove(formOpened);
 		}
 	});
 
@@ -289,6 +372,7 @@ function blockPopup(btn, wrap) {
 		if (formWrap.classList.contains(formOpened)) {
 			formWrap.classList.remove(formOpened);
 			html.classList.remove(overflowHidden);
+			formBtn.classList.remove(formOpened);
 		}
 	});
 }
@@ -380,6 +464,20 @@ document.querySelector('.cart_btn').addEventListener('click', function(e){
 	firstCart.dispatchEvent(clickEvent);
 });
 
+const orderBtn = document.querySelectorAll('.order_cart_tab');
+
+orderBtn.forEach(function(elem) {
+	elem.addEventListener('click', function(e){
+		const firstCart = document.querySelector('.last_cart');
+		const clickEvent = new MouseEvent('click', {
+		view: window,
+		bubbles: true,
+		cancelable: true
+		});
+		firstCart.dispatchEvent(clickEvent);
+	});
+})
+
 window.addEventListener('popstate', function(event) {
 	if (document.querySelector('.fancybox-is-open') || document.querySelector('.block_popop_modal.opened')) {
 		const cloceBlock = document.querySelectorAll('.close_btn');
@@ -396,7 +494,7 @@ window.addEventListener('popstate', function(event) {
 	}
   });
 
-const countDownDate = new Date("Mar 12, 2023 00:00:00").getTime();
+const countDownDate = new Date("Apr 3, 2023 00:00:00").getTime();
 const timerBlock = document.querySelector('#timer');
 if (timerBlock) {
 	let x = setInterval(function() {
@@ -416,3 +514,13 @@ if (timerBlock) {
 	}, 1000);
 }
 
+const tmenu = document.querySelector('.timer_wrap');
+const tmenuOffset = tmenu.offsetTop;
+
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > tmenuOffset) {
+    tmenu.classList.add('fixed');
+  } else {
+    tmenu.classList.remove('fixed');
+  }
+});
