@@ -263,7 +263,8 @@ cartBtn.addEventListener('click', function(){
 });
 
 $('[data-fancybox]').fancybox({
-	touch: false,
+	//touch: false,
+	scrolling: 'no'
   	afterShow: function(instance, current) {
     	$('.fancybox-content').on('touchmove', function(e) {
       	e.preventDefault();
