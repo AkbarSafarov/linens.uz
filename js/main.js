@@ -181,7 +181,8 @@ $(document).ready(function() {
         slidesPerView: 3,
 	    breakpoints: {
 		    0: {
-		    	slidesPerView: 2,
+		    	slidesPerView: "auto",
+		    	centeredSlides: true,
 		      	spaceBetween: 8
 		    },
 		    761: {
@@ -264,7 +265,6 @@ cartBtn.addEventListener('click', function(){
 
 $('[data-fancybox]').fancybox({
 	//touch: false,
-	scrolling: 'no'
   	afterShow: function(instance, current) {
     	$('.fancybox-content').on('touchmove', function(e) {
       	e.preventDefault();
@@ -339,49 +339,63 @@ dLink.forEach(btn => {
 function blockPopup(btn, wrap) {
 	let formWrap = document.querySelector(wrap);
 	let closeForm = formWrap.querySelector('.close_btn');
-	let formBtn = document.querySelector(btn);
+	let formBtn = document.querySelectorAll(btn);
 	let formOpened = 'opened';
 	let overflowHidden = 'overflowHidden';	
-	let wrapMain = document.querySelector('.block_popop_modal');
+	let wrapMain = document.querySelectorAll('.block_popop_modal');
 
 	closeForm.addEventListener('click', function() {
 		formWrap.classList.remove(formOpened);
-		formBtn.classList.remove(formOpened);
+		formBtn.forEach(function(btn) {
+		  btn.classList.remove(formOpened);
+		});
 		html.classList.remove(overflowHidden);
 	});
 
-	formBtn.addEventListener('click', function(event) {
-		document.querySelector('.btn_action').classList.remove(formOpened);
-		cartBtn.classList.remove(formOpened);
-		this.classList.add(formOpened);
-		wrapMain.classList.remove(formOpened);
-		formWrap.classList.add(formOpened);
-		event.preventDefault();
-		$.fancybox.close();
-	});
+	formBtn.forEach(btn => {
+		btn.addEventListener('click', function(event) {
+			document.querySelectorAll('.btn_action').forEach(function(btn) {
+			  btn.classList.remove(formOpened);
+			});
+			wrapMain.forEach(function(wrap) {
+			  wrap.classList.remove(formOpened);
+			});
+			//cartBtn.classList.remove(formOpened);
+			this.classList.add(formOpened);
+			formWrap.classList.add(formOpened);
+			event.preventDefault();
+			//$.fancybox.close();
+			console.log(123)
+		});
+	})
 
 	html.addEventListener('keyup', function(event) {
 		if (formWrap.classList.contains(formOpened) && event.keyCode == 27) {
 			formWrap.classList.remove(formOpened);
 			html.classList.remove(overflowHidden);
-			formBtn.classList.remove(formOpened);
+			formBtn.forEach(function(btn) {
+			  btn.classList.remove(formOpened);
+			});
 		}
 	});
 
-	body.addEventListener('click', function(a) {		
-		if (formWrap.contains(a.target) || formBtn.contains(a.target)) return;
-		if (formWrap.classList.contains(formOpened)) {
-			formWrap.classList.remove(formOpened);
-			html.classList.remove(overflowHidden);
-			formBtn.classList.remove(formOpened);
-		}
-	});
+	// body.addEventListener('click', function(a) {		
+	// 	if (formWrap.contains(a.target) || Array.from(formBtn).includes(a.target)) return;
+	// 	if (formWrap.classList.contains(formOpened)) {
+	// 		formWrap.classList.remove(formOpened);
+	// 		html.classList.remove(overflowHidden);
+	// 		formBtn.forEach(function(btn) {
+	// 		  btn.classList.remove(formOpened);
+	// 		});
+	// 	}
+	// });
 }
 
 blockPopup('.catalog_btn', '.categor_block_fixed');
 blockPopup('.review_btn', '.review_block_fixed');
 blockPopup('.delev_btn', '.delevery_block_fixed');
 blockPopup('.send_btn', '.send_block_fixed');
+blockPopup('.cart_btn', '.cart_modal');
 
 const siteWrap = document.querySelector('body');
 
@@ -422,17 +436,14 @@ function tabsBlock() {
 
 tabsBlock();
 
-document.querySelectorAll('.cart_popup_modal .cart_inner').forEach(function(tab) {
-	const tabTitle = tab.querySelectorAll('.tabs-title li');
-	const tabBlocks = tab.querySelectorAll('.tabs-block .tabs-b');
-	const tabActive = 'active';
-	
-	tabTitle.forEach(function(title) {
-		title.addEventListener('click', onTabClick);
-	});
+const tabTitle = document.querySelectorAll('.cart_inner .tabs-title li');
+const tabBlocks = document.querySelectorAll('.cart_inner .tabs-block .tabs-b');
+const tabActive = 'active';
 
-	function onTabClick(event) {
-		const target = event.target.closest('li');
+tabTitle.forEach(function(title) {
+	title.addEventListener('click', function() {
+		console.log(123)
+		const target = this;
 		const index = Array.prototype.indexOf.call(tabTitle, target);
 
 		tabTitle.forEach(function(title) {
@@ -444,7 +455,45 @@ document.querySelectorAll('.cart_popup_modal .cart_inner').forEach(function(tab)
 			block.classList.remove(tabActive);
 		});
 		tabBlocks[index].classList.add(tabActive);
-	}
+	});
+});
+
+document.querySelectorAll('.cart_popup_modal .cart_inner').forEach(function(tab) {
+	// const tabTitle = document.querySelectorAll('.cart_inner .tabs-title li');
+	// const tabBlocks = document.querySelectorAll('.cart_inner .tabs-block .tabs-b');
+	// const tabActive = 'active';
+	
+	// tabTitle.forEach(function(title) {
+	// 	title.addEventListener('click', function() {
+	// 		const target = this;
+	// 		const index = Array.prototype.indexOf.call(tabTitle, target);
+
+	// 		tabTitle.forEach(function(title) {
+	// 			title.classList.remove(tabActive);
+	// 		});
+	// 		target.classList.add(tabActive);
+
+	// 		tabBlocks.forEach(function(block) {
+	// 			block.classList.remove(tabActive);
+	// 		});
+	// 		tabBlocks[index].classList.add(tabActive);
+	// 	});
+	// });
+
+	// function onTabClick(event) {
+	// 	const target = event.target.closest('li');
+	// 	const index = Array.prototype.indexOf.call(tabTitle, target);
+
+	// 	tabTitle.forEach(function(title) {
+	// 		title.classList.remove(tabActive);
+	// 	});
+	// 	target.classList.add(tabActive);
+
+	// 	tabBlocks.forEach(function(block) {
+	// 		block.classList.remove(tabActive);
+	// 	});
+	// 	tabBlocks[index].classList.add(tabActive);
+	// }
 });
 
 const accorBlock = document.querySelectorAll('.accor_title');
@@ -519,7 +568,7 @@ const tmenu = document.querySelector('.timer_wrap');
 const tmenuOffset = tmenu.offsetTop;
 
 window.addEventListener('scroll', function() {
-  if (window.pageYOffset > tmenuOffset) {
+  if (window.pageYOffset > tmenuOffset + 220) {
     tmenu.classList.add('fixed');
   } else {
     tmenu.classList.remove('fixed');

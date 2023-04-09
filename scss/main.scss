@@ -435,11 +435,14 @@ img, textarea, input, table {
     transition: all 0.5s;
     padding: 100px 40px 40px 40px;
 
-    @media all and (max-width: 767px) {
+    @media all and (max-width: 1000px) {
         padding: 0;
+        height: calc(100% - 69px);
+        background: #fff;
     }
 
-    @media all and (min-width: 768px) {
+    @media all and (min-width: 1001px) {
+        
 
         &:before {
             height: 100%;
@@ -455,7 +458,7 @@ img, textarea, input, table {
     }
 
     .formExtraWrapper {
-        width: 588px;
+        width: 940px;
         margin: auto;
         position: relative;   
         display: inline-block;
@@ -464,12 +467,12 @@ img, textarea, input, table {
         text-align: left; 
         z-index: 10;    
 
-        @media all and (max-width: 767px) {
-            width: 300;
+        @media all and (max-width: 1000px) {
+            width: 100%;
             display: block;
         }
 
-        .close-form {
+        .close_btn {
             position: absolute;
             top: 10px;
             right: 10px;
@@ -483,36 +486,7 @@ img, textarea, input, table {
 }
 
 .form-b {
-    font-size: 0;
-    padding: 52px 33px 48px;
-    box-sizing: border-box;
-    position: relative;
-    background: #fff;
-    z-index: 100;
-
-    @media all and (max-width: 767px) {
-        padding: 48px 20px;
-    }
-
-    .title {
-        font-style: normal;
-        font-weight: 800;
-        font-size: 48px;
-        line-height: 100%;
-        text-transform: uppercase;
-        color: #0C395F;
-        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-        padding-bottom: 14px;
-    }
-
-    .text {
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 100%;
-        color: #0C395F;
-        padding-bottom: 52px;
-    }
+    
 }
 
 .menu_burger {
@@ -1424,6 +1398,7 @@ img, textarea, input, table {
                 padding: 8px 16px;
                 display: block;
                 overflow: unset;
+                position: relative;
                 
 
                 &:before {
@@ -1435,20 +1410,24 @@ img, textarea, input, table {
                     padding: 0;
                     font-size: 13px;
                     line-height: 16px;
-                    margin: 0 0 8px;
+                    margin: 0 0 16px;
                     text-align: center;
                 }
 
                 .timer_wrap {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
                     width: 236px;
                     display: flex;
-                    margin: 0 auto -24px;
+                    margin: 0 auto -16px;
+                    transition: all 0.3s;
 
                     &.fixed {
                         position: fixed;
-                        top: 0;
-                        left: 0;
-                        right: 0;
+                        top: 10px;
+                        bottom: auto;
                         margin: 0 auto;
                         z-index: 40;
 
@@ -2180,6 +2159,8 @@ img, textarea, input, table {
 
         @media all and (max-width: 759px) {
             border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
         }
 
         .title {
@@ -2254,24 +2235,24 @@ img, textarea, input, table {
 
         @media all and (max-width: 1000px) {
 
-            // .swiper-slide {
-            //     opacity: .5;
+            .swiper-slide {
+                opacity: .5;
 
-            //     &.swiper-slide-active {
-            //         opacity: 1;
-            //     }
-            // }
+                &.swiper-slide-active {
+                    opacity: 1;
+                }
+            }
         }
 
         @media all and (max-width: 759px) {
             margin: 0;
 
-            img {
-                height: 260px;
-            }
+            // img {
+            //     height: 260px;
+            // }
 
             .swiper-slide {
-                //max-width: 300px;
+                max-width: 300px;
                 opacity: .5;
 
                 &.swiper-slide-active {
@@ -2323,6 +2304,16 @@ img, textarea, input, table {
 
             &.swiper-review-next {
                 right: -20px;
+            }
+
+            @media all and (max-width: 759px) {
+                &.swiper-review-prev {
+                    left: 10px;
+                }
+
+                &.swiper-review-next {
+                    right: 10px;
+                }
             }
         }
     }
@@ -3960,7 +3951,7 @@ img, textarea, input, table {
         }
 
         @media all and (max-width: 759px) {
-            display: block;
+            //display: block;
         }
 
         .swiper-slide {
@@ -3975,11 +3966,19 @@ img, textarea, input, table {
                 flex: 0 0 calc(33.33% - 14px);
             }
 
+            @media all and (max-width: 759px) {
+                flex: 0 0 calc(50% - 10px);
+            }
+
             img {
                 height: 400px;
                 object-fit: cover;
                 width: 100%;
                 border-radius: 12px;
+
+                @media all and (max-width: 759px){
+                    height: 240px;
+                }
             }
 
             .zoom_text {
@@ -5413,6 +5412,77 @@ img, textarea, input, table {
             color: #333;
         }
     }
+
+    &.form-popup-wrapper {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: auto;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 0;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 100;
+        background: rgba(#1E193D, 0.2);
+        transition: all 0.5s;
+        padding: 100px 40px 40px 40px;
+
+        @media all and (max-width: 1000px) {
+            padding: 0;
+            height: calc(100% - 69px);
+            background: #fff;
+        }
+
+        @media all and (min-width: 1001px) {            
+
+            &:before {
+                height: 100%;
+                display: inline-block;
+                vertical-align: middle;
+                content: '';
+            }
+        }
+
+        &.opened {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .formExtraWrapper {
+            width: 940px;
+            margin: auto;
+            position: relative;   
+            display: inline-block;
+            white-space: normal;
+            vertical-align: middle;
+            text-align: left; 
+            z-index: 10;    
+
+            @media all and (max-width: 1000px) {
+                width: 100%;
+                display: block;
+            }
+
+            .close_btn {
+                position: absolute;
+                width: 32px;
+                height: 32px;
+                top: 12px;
+                right: 12px;
+                background: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' rx='6' fill='none'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.64645 9.64645C9.84171 9.45118 10.1583 9.45118 10.3536 9.64645L16 15.2929L21.6464 9.64645C21.8417 9.45118 22.1583 9.45118 22.3536 9.64645C22.5488 9.84171 22.5488 10.1583 22.3536 10.3536L16.7071 16L22.3536 21.6464C22.5488 21.8417 22.5488 22.1583 22.3536 22.3536C22.1583 22.5488 21.8417 22.5488 21.6464 22.3536L16 16.7071L10.3536 22.3536C10.1583 22.5488 9.84171 22.5488 9.64645 22.3536C9.45118 22.1583 9.45118 21.8417 9.64645 21.6464L15.2929 16L9.64645 10.3536C9.45118 10.1583 9.45118 9.84171 9.64645 9.64645Z' fill='%23666666'/%3E%3C/svg%3E%0A") 50% no-repeat;
+                cursor: pointer;
+                z-index: 101;
+
+                @media all and (max-width: 759px) {
+                    top: 8px;
+                    right: 8px;
+                }
+            }
+        }
+    }
 }
 
 .review_block_fixed {
@@ -6039,7 +6109,7 @@ img, textarea, input, table {
 .cart_popup_modal {
     padding: 0;
     font-size: 0;
-    display: none;
+    //display: none;
     z-index: 100;
     transition: all 0.5s;
     border-radius: 12px;
@@ -6632,7 +6702,7 @@ img, textarea, input, table {
 }
 
 @media all and (max-width: 1000px) {
-    .fancybox-slide {
+    .cart_modal {
         padding: 0;
 
         .cart_popup_modal  {
@@ -6737,7 +6807,7 @@ img, textarea, input, table {
 }
 
 @media all and (max-width: 759px) {
-    .fancybox-slide {
+    .cart_modal {
         padding: 0;
 
         .cart_popup_modal  {
