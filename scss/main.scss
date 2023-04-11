@@ -1460,9 +1460,11 @@ img, textarea, input, table {
 
 .categor_block_wr {
     padding: 24px 42px 24px;
+    overflow: hidden;
 
     @media all and (max-width: 1200px) {
         padding: 16px 42px 16px;
+        max-height: 227px;
 
         .block_inner{
             margin-left: -8px;
@@ -1471,6 +1473,7 @@ img, textarea, input, table {
 
     @media all and (max-width: 1000px) {
         padding: 16px 30px;
+        max-height: 187px;
     }
 
     @media all and (max-width: 759px) {
