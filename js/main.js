@@ -263,17 +263,17 @@ cartBtn.addEventListener('click', function(){
 	this.classList.add('opened');
 });
 
-$('[data-fancybox]').fancybox({
-	//touch: false,
-  	afterShow: function(instance, current) {
-    	$('.fancybox-content').on('touchmove', function(e) {
-      	e.preventDefault();
-    	});
-  	},
-  	afterClose: function(instance, current) {
-    	cartBtn.classList.remove('opened');
-  	}
-});
+// $('[data-fancybox]').fancybox({
+// 	//touch: false,
+//   	afterShow: function(instance, current) {
+//     	$('.fancybox-content').on('touchmove', function(e) {
+//       	e.preventDefault();
+//     	});
+//   	},
+//   	afterClose: function(instance, current) {
+//     	cartBtn.classList.remove('opened');
+//   	}
+// });
 
 const buttonScroll = document.querySelectorAll('.button_id');
 
