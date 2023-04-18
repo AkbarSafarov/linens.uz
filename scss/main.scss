@@ -1121,6 +1121,10 @@ img, textarea, input, table {
                     object-fit: cover;
                     width: 100%;
                     height: auto;
+
+                    @media all and (max-width: 460px) {
+                        min-height: 108px;
+                    }
                 }
             }
 
@@ -2918,6 +2922,10 @@ img, textarea, input, table {
 
     @media all and (max-width: 759px) {
         padding: 32px 16px 32px;
+    }
+
+    @media all and (max-width: 1000px) {
+        padding-bottom: 101px;
     }
 
     .copy {
