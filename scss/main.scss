@@ -1122,7 +1122,7 @@ img, textarea, input, table {
                     width: 100%;
                     height: auto;
 
-                    @media all and (max-width: 460px) {
+                    @media all and (max-width: 767px) {
                         min-height: 108px;
                     }
                 }
@@ -1363,6 +1363,7 @@ img, textarea, input, table {
                 width: 100%;
                 padding: 0;
                 position: relative;
+                min-height: 108px;
 
                 // &:before {
                 //     content: '';
