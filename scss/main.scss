@@ -2076,6 +2076,18 @@ img, textarea, input, table {
         z-index: 10;
         transition: all 0.3s;
 
+        &:first-child {
+            left: -20px;
+
+            &:before {
+                transform: rotate(180deg);
+            }
+        }
+
+        &:last-child {
+            right: -20px;
+        }
+
         &.swiper-button-disabled {
             opacity: .7;
         }
@@ -2100,42 +2112,6 @@ img, textarea, input, table {
             &:before {
                 background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.6464 5.64645C12.8417 5.45118 13.1583 5.45118 13.3536 5.64645L19.3536 11.6464C19.4473 11.7402 19.5 11.8674 19.5 12C19.5 12.1326 19.4473 12.2598 19.3536 12.3536L13.3536 18.3536C13.1583 18.5488 12.8417 18.5488 12.6464 18.3536C12.4512 18.1583 12.4512 17.8417 12.6464 17.6464L17.7929 12.5H5C4.72386 12.5 4.5 12.2761 4.5 12C4.5 11.7239 4.72386 11.5 5 11.5H17.7929L12.6464 6.35355C12.4512 6.15829 12.4512 5.84171 12.6464 5.64645Z' fill='%23561D3F'/%3E%3C/svg%3E%0A") 50% no-repeat;
             }
-        }
-
-        &.swiper-pr-prev {
-            left: -20px;
-
-            &:before {
-                transform: rotate(180deg);
-            }
-        }
-
-        &.swiper-pr-next {
-            right: -20px;
-        }
-
-        &.swiper-hit-prev {
-            left: -20px;
-
-            &:before {
-                transform: rotate(180deg);
-            }
-        }
-
-        &.swiper-hit-next {
-            right: -20px;
-        }
-
-        &.swiper-new-prev {
-            left: -20px;
-
-            &:before {
-                transform: rotate(180deg);
-            }
-        }
-
-        &.swiper-new-next {
-            right: -20px;
         }
     } 
 }
@@ -5279,8 +5255,10 @@ img, textarea, input, table {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;
+    display: none;
 
     &.opened {
+        display: block;
         @media all and (max-width: 1000px) {
             opacity: 1;
             visibility: visible;

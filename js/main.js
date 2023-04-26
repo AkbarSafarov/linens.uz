@@ -310,7 +310,6 @@ function blockPopup(btn, wrap) {
 			formWrap.classList.add(formOpened);
 			event.preventDefault();
 			//$.fancybox.close();
-			console.log(123)
 		});
 	})
 
