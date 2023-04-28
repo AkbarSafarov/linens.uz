@@ -93,7 +93,7 @@ $(document).ready(function() {
 		    const productSwiper = new Swiper(dataId, {
 		        pagination: {
 		            el: `.${paginationClass}`,
-		            clickable: false,
+		            clickable: true,
 		        },
 		        spaceBetween: 0,
 		        loop: false,

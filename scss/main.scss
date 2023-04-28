@@ -2099,6 +2099,7 @@ img, textarea, input, table {
     }
 }
 
+
 .order_to_block_wr {
     padding: 40px 42px 40px;
 
@@ -6678,4 +6679,9 @@ img, textarea, input, table {
             width: 100%;
         }
     }
+}
+
+picture {
+    display: block;
+    width: 100%;
 }
